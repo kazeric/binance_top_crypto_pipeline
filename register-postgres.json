@@ -1,0 +1,17 @@
+{
+  "name": "cap-stock-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "dbz",
+    "database.password": "dbz",
+    "database.dbname": "cap_stock_db",
+    "topic.prefix": "cap_stock",
+    "slot.name": "cap_stock_slot",
+    "publication.autocreate.mode": "filtered",
+    "table.include.list": "public.kline_data, public.order_book, public.recent_trades, public.top_24hr",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",
+    "schema.history.internal.kafka.topic": "schema-changes.cap_stock_db"
+  }
+}

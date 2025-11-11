@@ -1,0 +1,26 @@
+{
+  "name": "cassandra_sink_1",
+  "config": {
+    "connector.class": "com.datastax.oss.kafka.sink.CassandraSinkConnector",
+    "tasks.max": "1",
+
+    "topics": "cap_stock.public.kline_data, cap_stock.public.recent_trades ,cap_stock.public.top_24hr, cap_stock.public.order_book ",
+
+    "contactPoints": "cassandra",
+    "loadBalancing.localDc": "datacenter1",
+
+
+    "topic.cap_stock.public.kline_data.cap_stock.kline_data.mapping": "symbol=value.symbol,k_open_time=value.k_open_time,k_close_time=value.k_close_time,open=value.open,high=value.high,low=value.low,close=value.close,volume=value.volume,quote_asset_volume=value.quote_asset_volume,number_of_trades=value.number_of_trades,tb_base_volume=value.tb_base_volume,tb_quote_volume=value.tb_quote_volume,ranking=value.ranking,time_collected=value.time_collected",
+
+    "topic.cap_stock.public.recent_trades.cap_stock.recent_trades.mapping":"symbol=value.symbol,trade_time=value.time,trade_id=value.id,price=value.price,qty=value.qty,quote_qty=value.quote_qty,is_buyer_maker=value.is_buyer_maker,is_best_match=value.is_best_match,ranking=value.ranking,time_collected=value.time_collected",
+
+    "topic.cap_stock.public.top_24hr.cap_stock.top_24hr.mapping":"symbol=value.symbol, time_collected=value.time_collected,price_change=value.price_change,price_change_percent=value.price_change_percent,weighted_avg_price=value.weighted_avg_price,prev_close_price=value.prev_close_price,last_price=value.last_price,last_qty=value.last_qty,bid_price=value.bid_price,bid_qty=value.bid_qty,ask_price=value.ask_price,ask_qty=value.ask_qty,open_price=value.open_price,high_price=value.high_price,low_price=value.low_price,volume=value.volume,quote_volume=value.quote_volume,open_time=value.open_time,close_time=value.close_time,first_id=value.first_id,last_id=value.last_id",
+
+    "topic.cap_stock.public.order_book.cap_stock.order_book.mapping": "symbol=value.symbol, side=value.side, ranking=value.ranking, price=value.price, quantity=value.quantity, time_collected=value.time_collected",
+
+    
+    "key.converter":"org.apache.kafka.connect.storage.StringConverter",
+    "transforms":"unwrap",
+    "transforms.unwrap.type":"io.debezium.transforms.ExtractNewRecordState"
+  }
+}

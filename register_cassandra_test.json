@@ -1,0 +1,19 @@
+{
+  "name": "cassandra-sink_test",
+  "config": {
+    "connector.class": "com.datastax.oss.kafka.sink.CassandraSinkConnector",
+    "tasks.max": "1",
+
+    "topics": "cap_stock.public.top_24hr",
+
+    "contactPoints": "cassandra",
+    "loadBalancing.localDc": "datacenter1",
+
+    "topic.cap_stock.public.top_24hr.cap_stock.top_24hr.mapping": "symbol=value.symbol, time_collected=value.time_collected,price_change=value.price_change,price_change_percent=value.price_change_percent,weighted_avg_price=value.weighted_avg_price,prev_close_price=value.prev_close_price,last_price=value.last_price,last_qty=value.last_qty,bid_price=value.bid_price,bid_qty=value.bid_qty,ask_price=value.ask_price,ask_qty=value.ask_qty,open_price=value.open_price,high_price=value.high_price,low_price=value.low_price,volume=value.volume,quote_volume=value.quote_volume,open_time=value.open_time,close_time=value.close_time,first_id=value.first_id,last_id=value.last_id",
+    
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "transforms": "unwrap",
+    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
+  }
+}
+
