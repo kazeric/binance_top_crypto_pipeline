@@ -1,20 +1,8 @@
 # Binance Top Crypto Pipeline
 
 A comprehensive real-time data pipeline that captures, processes, and visualizes cryptocurrency market data from Binance. This project leverages Apache Kafka, PostgreSQL, Cassandra, and Grafana to build a scalable, event-driven architecture for financial data processing.
+<img width="1921" height="886" alt="image" src="https://github.com/user-attachments/assets/05bd4c16-cc30-4487-b749-10cb6b9438d7" />
 
-## Table of Contents
-
-- [Project Overview](#project-overview)
-- [Architecture](#architecture)
-- [System Components](#system-components)
-- [Prerequisites](#prerequisites)
-- [Setup & Installation](#setup--installation)
-- [Running the Pipeline](#running-the-pipeline)
-- [Data Flow](#data-flow)
-- [Configuration](#configuration)
-- [Monitoring & Visualization](#monitoring--visualization)
-- [Kafka Connect Connectors](#kafka-connect-connectors)
-- [Troubleshooting](#troubleshooting)
 
 ## Project Overview
 
@@ -392,7 +380,7 @@ binance_top_crypto_pipeline/
 
 ---
 
-## 🚫 Stopping & Cleanup
+## Stopping & Cleanup
 
 ### Stop All Services
 
